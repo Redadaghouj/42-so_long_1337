@@ -1,6 +1,6 @@
 CC := cc
 
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -w
 
 MLX_FLAGS := -framework Cocoa -framework OpenGL -framework IOKit
 
@@ -14,7 +14,11 @@ RM := rm -f
 
 NAME := so_long
 
-SRCS := so_long.c
+MANDO := mandatory
+
+UTILS := mandatory/utils
+
+SRCS := ${MANDO}/so_long.c ${UTILS}/ft_strlen.c ${UTILS}/ft_putstr_fd.c
 
 OBJ := ${SRCS.c=.o}
 
