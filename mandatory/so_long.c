@@ -6,11 +6,14 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/20 21:16:39 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/21 10:43:32 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int square_x = 200;
+int square_y = 200;
 
 void	ft_mlx_error(mlx_t *mlx)
 {
