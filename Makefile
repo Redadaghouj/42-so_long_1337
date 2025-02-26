@@ -18,23 +18,21 @@ MANDO := mandatory
 
 UTILS := mandatory/utils
 
-SRCS := ${MANDO}/so_long.c ${UTILS}/ft_strlen.c ${UTILS}/ft_putstr_fd.c
+GNL := mandatory/gnl
 
-OBJ := ${SRCS.c=.o}
+SRCS := ${MANDO}/so_long.c ${UTILS}/ft_putstr_fd.c ${GNL}/get_next_line.c ${GNL}/get_next_line_utils.c \
+		${MANDO}/validate_map.c
 
 all: ${NAME}
 
-${NAME}: ${OBJ}
+${NAME}: ${SRCS} ${MANDO}/so_long.h ${GNL}/get_next_line.h
 	${CC} ${CFLAGS} ${SRCS} ${MLX_FLAGS} ${MLX_LIB} ${AMLX} ${MLXINCLUDE} -o ${NAME}
 
-%.o: %.c so_long.h
-	${CC} ${CFLAGS} -c $< -o $@
-
 clean:
-	@${RM} ${OBJ} ${OBJ_BONUS}
+	@echo "CLEAN"
 
 fclean: clean
-	@${RM} ${NAME} ${NAME_BONUS}
+	@${RM} ${NAME}
 
 re: fclean all
 
