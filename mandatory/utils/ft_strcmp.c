@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 11:36:02 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/26 16:39:49 by mdaghouj         ###   ########.fr       */
+/*   Created: 2025/02/26 16:23:15 by mdaghouj          #+#    #+#             */
+/*   Updated: 2025/02/26 16:34:11 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	ft_strlen(const char *s)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 		i++;
-	if (s[i - 1] == "\n")
-		i--;
-	return (i);
+	return (s1[i] - s2[i]);
 }

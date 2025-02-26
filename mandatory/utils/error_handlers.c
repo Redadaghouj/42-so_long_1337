@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   error_handlers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 11:36:02 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/26 16:39:49 by mdaghouj         ###   ########.fr       */
+/*   Created: 2025/02/26 15:18:46 by mdaghouj          #+#    #+#             */
+/*   Updated: 2025/02/26 15:46:33 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	ft_strlen(const char *s)
+void	exit_msg(char *msg)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	if (s[i - 1] == "\n")
-		i--;
-	return (i);
+	write(STD_ERROR, msg, ft_strlen(msg));
+	exit(EXIT_FAILURE);
 }
