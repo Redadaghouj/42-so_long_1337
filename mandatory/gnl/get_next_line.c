@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:24:11 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/26 11:11:04 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:16:19 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*find_newline(char **stored_line, int end_line, char **buffer, int flag)
 
 	if (flag)
 	{
-		tmp_buff = ft_substr(*buffer, 0, end_line + 1);
+		tmp_buff = ft_substr(*buffer, 0, end_line);
 		line = ft_strjoin(*stored_line, tmp_buff);
 		free(tmp_buff);
-		tmp_buff = ft_substr(*buffer, end_line + 1,
+		tmp_buff = ft_substr(*buffer, end_line,
 				ft_strlen(*buffer) - end_line - 1);
 	}
 	else
