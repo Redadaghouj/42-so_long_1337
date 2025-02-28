@@ -24,6 +24,7 @@ UTILS := mandatory/utils
 GNL := mandatory/gnl
 
 SRCS := ${MANDO}/so_long.c ${MANDO}/validate_map.c ${MANDO}/so_long_utils.c ${MANDO}/check_walls.c \
+		${MANDO}/validate_map_utils.c \
 		${GNL}/get_next_line.c ${GNL}/get_next_line_utils.c \
 		${UTILS}/error_handlers.c ${UTILS}/ft_strcmp.c ${UTILS}/ft_putstr_fd.c
 

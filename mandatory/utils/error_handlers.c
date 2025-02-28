@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:18:46 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/26 22:11:35 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/27 12:17:23 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,11 @@ void	free_map_and_exit(char **map, char *msg)
 {
 	free_buffer(map);
 	exit_msg(msg);
+}
+
+void	ft_mlx_error(mlx_t *mlx)
+{
+	ft_putstr_fd("Error\n", STD_ERROR);
+	mlx_terminate(mlx);
+	exit(EXIT_FAILURE);
 }

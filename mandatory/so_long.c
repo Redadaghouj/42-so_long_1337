@@ -6,20 +6,13 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/26 16:51:12 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:21:08 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 mlx_image_t	*img;
-
-void	ft_mlx_error(mlx_t *mlx)
-{
-	ft_putstr_fd("Error\n", STD_ERROR);
-	mlx_terminate(mlx);
-	exit(EXIT_FAILURE);
-}
 
 void	ft_hook(void *param)
 {
@@ -38,25 +31,22 @@ void	ft_hook(void *param)
 		img->instances[0].y += 5;
 }
 
-int	is_wrong_ext(char *filename)
-{
-	char	*s;
-	int		idx;
-
-	s = ".ber";
-	idx = ft_strlen(filename) - 4;
-	if (ft_strcmp(s, &filename[idx]) != 0)
-		return (1);
-	return (0);
-}
-
 int	main(int argc, char *argv[])
 {
+	char		**map;
+	t_map_info	map_info;
+
 	if (argc != 2)
 		return (1);
 	if (is_wrong_ext(argv[1]))
 		exit_msg("Error\nInvalid file extension.\n");
-	validate_map(argv[1]);
+	init_map_info(&map_info);
+	validate_map(argv[1], &map_info);
+	map = file_to_matrix(argv[1], map_info.lines);
+	if (is_not_closed(map, map_info.lines - 1))
+		free_map_and_exit(map, "Error\nMap not closed.\n");
+	if (is_not_valid_path(map, &map_info))
+		free_map_and_exit(map, "Error\nMap path is not valid.\n");
 	return (0);
 }
 

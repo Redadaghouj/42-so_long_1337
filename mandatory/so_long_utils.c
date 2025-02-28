@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:51:24 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/26 20:51:48 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:21:30 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void	init_map_info(t_map_info *map_info)
 	map_info->is_path_valid = 0;
 	map_info->line_count = 0;
 	map_info->player_count = 0;
+	map_info->lines = 0;
+	map_info->rows = 0;
 }
