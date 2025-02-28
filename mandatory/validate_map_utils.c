@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:15:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/28 20:04:27 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:56:35 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ char	**file_to_matrix(char *map_path, int len)
 	int		i;
 
 	i = 0;
+	if (fd == -1)
+		exit_msg("Error\nFile open failed.\n");
+	fd = open(map_path, O_RDONLY);
 	map = (char **) malloc(sizeof(char *) * (len + 1));
 	if (!map)
 		exit_msg("Error\nMalloc failed.\n");
-	fd = open(map_path, O_RDONLY);
-	if (fd == -1)
-		exit_msg("Error\nFile open failed.\n");
 	line = get_next_line(fd);
 	while (line)
 	{
