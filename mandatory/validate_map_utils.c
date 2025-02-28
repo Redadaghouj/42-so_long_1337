@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:15:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/28 18:54:12 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:04:27 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	is_not_valid_path(char **map, t_map_info *map_info)
 	flood_fill(map, x, y, map_info, &counter);
 	if (counter == (map_info->exit_count + map_info->collectible_count))
 		puts("all reachable");
-	printf ("exit = %d | coins = %d | counter = %d\n", map_info->exit_count, map_info->collectible_count, counter);
 	return (0);
 }
 
