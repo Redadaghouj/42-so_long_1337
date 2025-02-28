@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/28 13:11:58 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:49:05 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_strcmp(char *s1, char *s2);
 void	*free_buffer(char **buffer);
 void	init_map_info(t_map_info *map_info);
 /* VALIDATE MAP */
-int		validate_map(char *map_path, t_map_info *map_info);
+void	validate_map(char *map_path, t_map_info *map_info);
 int		is_not_closed(char **map, int size);
 void	count_characters(t_map_info *map_info, char *line);
 void	check_characters(t_map_info map_info);

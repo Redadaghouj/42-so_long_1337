@@ -6,11 +6,11 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/26 11:04:21 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:18:21 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "mandatory/so_long.h"
 
 mlx_image_t	*img;
 

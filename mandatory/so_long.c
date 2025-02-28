@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/28 13:21:08 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:21:09 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ int	main(int argc, char *argv[])
 	------------------------------
 	The extension must be .ber ✅
 	The map must be rectangular ✅
-	The map must be closed/surrounded by wall
-	check if there’s a valid path in the map
+	The map must be closed/surrounded by wall ✅
+	check if there’s a valid path in the map ✅
 */
