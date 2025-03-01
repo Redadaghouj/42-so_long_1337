@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:51:24 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/01 17:44:02 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/01 21:05:23 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,10 @@ void	init_map_info(t_map_info *map_info)
 	map_info->player = 0;
 	map_info->lines = 0;
 	map_info->rows = 0;
+}
+
+void	init_player(t_player *player)
+{
+	player->x = -1;
+	player->y = 0;
 }

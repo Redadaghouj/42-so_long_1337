@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:15:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/01 18:25:57 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/01 21:43:31 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ int	is_not_valid_path(t_map_info *map_info, t_player player)
 {
 	flood_fill(map_info, player.y, player.x);
 	if (map_info->path_checker == (map_info->exit + map_info->collectibles))
-		puts("all reachable");
-	else
-		puts("fail to collect/exit");
-	return (EXIT_SUCCESS);
+		return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
 }
 
 void	file_to_matrix(char *map_path, t_map_info *map_info)
@@ -74,4 +72,23 @@ void	file_to_matrix(char *map_path, t_map_info *map_info)
 	}
 	close(fd);
 	map_info->map[i] = NULL;
+}
+
+void	check_player_position(t_player *player, int line_num, char *line)
+{
+	int	i;
+
+	if (player->x != -1)
+		return ;
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == 'P')
+		{
+			player->x = i;
+			player->y = line_num;
+			break;
+		}
+		i++;
+	}
 }
