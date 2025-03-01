@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 21:51:42 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/26 22:21:35 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/01 17:47:34 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int	check_upper_wall(char **map)
 	{
 		if (map[0][i] != '1')
 		{
-			return (1);
+			return (EXIT_FAILURE);
 			break ;
 		}
 		i++;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	check_lower_wall(char **map, int size)
@@ -38,12 +38,12 @@ int	check_lower_wall(char **map, int size)
 	{
 		if (map[size][i] != '1')
 		{
-			return (1);
+			return (EXIT_FAILURE);
 			break ;
 		}
 		i++;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	check_left_wall(char **map, int size)
@@ -55,12 +55,12 @@ int	check_left_wall(char **map, int size)
 	{
 		if (map[i][0] != '1')
 		{
-			return (1);
+			return (EXIT_FAILURE);
 			break ;
 		}
 		i++;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	check_right_wall(char **map, int size)
@@ -74,10 +74,10 @@ int	check_right_wall(char **map, int size)
 	{
 		if (map[i][end] != '1')
 		{
-			return (1);
+			return (EXIT_FAILURE);
 			break ;
 		}
 		i++;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }

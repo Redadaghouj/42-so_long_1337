@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/02/28 17:21:09 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/01 18:24:05 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,37 +33,20 @@ void	ft_hook(void *param)
 
 int	main(int argc, char *argv[])
 {
-	char		**map;
 	t_map_info	map_info;
+	t_player	player;
 
 	if (argc != 2)
-		return (1);
+		return (EXIT_FAILURE);
 	if (is_wrong_ext(argv[1]))
 		exit_msg("Error\nInvalid file extension.\n");
 	init_map_info(&map_info);
-	validate_map(argv[1], &map_info);
-	map = file_to_matrix(argv[1], map_info.lines);
-	if (is_not_closed(map, map_info.lines - 1))
-		free_map_and_exit(map, "Error\nMap not closed.\n");
-	if (is_not_valid_path(map, &map_info))
-		free_map_and_exit(map, "Error\nMap path is not valid.\n");
-	return (0);
+	init_player(&player);
+	validate_map(argv[1], &map_info, &player);
+	file_to_matrix(argv[1], &map_info);
+	if (is_not_closed(map_info.map, map_info.lines - 1))
+		free_map_and_exit(map_info.map, "Error\nMap not closed.\n");
+	if (is_not_valid_path(&map_info, player))
+		free_map_and_exit(map_info.map, "Error\nMap path is not valid.\n");
+	return (EXIT_SUCCESS);
 }
-
-/*	FIX: validate map
-----------------------
-	0 for an empty space
-	1 for wall
-	C for collectible
-	E for a map exit
-	P for the player starting pos
-	------------------------------
-	1 exit ✅
-	1 collectible ✅
-	1 starting position ✅
-	------------------------------
-	The extension must be .ber ✅
-	The map must be rectangular ✅
-	The map must be closed/surrounded by wall ✅
-	check if there’s a valid path in the map ✅
-*/
