@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/01 21:33:59 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:37:13 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ void	exit_msg(char *msg);
 void	free_map_and_exit(char **map, char *msg);
 void	ft_mlx_error(mlx_t *mlx);
 /* DISPLAY FRAME */
-void	display_frame(char *map_path, t_player player);
+void	display_frame(char *map_path, t_player player, t_map_info *map_info);
 
 #endif
