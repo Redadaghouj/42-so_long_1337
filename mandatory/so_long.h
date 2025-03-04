@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/02 13:37:13 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:32:34 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define WIDTH 1600
-# define HEIGHT 800
+# define TILE 64
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
 # define STD_ERROR 2
-# define GAME_TITLE "ATTACK ON TITANS"
+# define GAME_TITLE "PACKMAN"
 
 typedef struct s_map_info
 {
@@ -43,6 +42,7 @@ typedef struct	s_player
 	int y;
 }				t_player;
 
+
 typedef struct	s_texture
 {
 	mlx_texture_t	*background;
@@ -56,6 +56,12 @@ typedef struct	s_texture
 	mlx_texture_t	*exit;
 	mlx_image_t		*exit_img;
 }				t_texture;
+
+typedef struct	s_game
+{
+	mlx_t			*mlx;
+	t_texture		*texture;
+}				t_game;
 
 /* UTILS */
 void	ft_putstr_fd(char *str, int fd);
