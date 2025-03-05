@@ -6,25 +6,44 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/05 02:37:48 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/05 17:34:50 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	hit_wall(int p_x, int p_y, mlx_instance_t *wall)
+int	hit_wall(int p_x, int p_y, mlx_instance_t *wall, int len)
 {
 	int	i;
 
 	i = 0;
-	while (i < 64)
+	while (i < len)
 	{
-		if (p_x < wall[i].x + TILE - 2 && p_x + TILE - 2 > wall[i].x &&
-			p_y < wall[i].y + TILE - 2 && p_y + TILE - 2 > wall[i].y)
+		// player.x < wall.x + wall.width
+		// player.x + player.w > wall.x
+		// player.y < wall.y + wall.height
+		// player.y + player.height > wall.y
+		if (p_x < wall[i].x + TILE - 4 && p_x + TILE - 4 > wall[i].x
+			&& p_y < wall[i].y + TILE - 2 && p_y + TILE - 2 > wall[i].y)
 			return (0);
 		i++;
 	}
 	return (1);
+}
+
+int	hit_coin(int p_x, int p_y, mlx_instance_t *coin, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (p_x < coin[i].x + TILE - 4 && p_x + TILE - 4 > coin[i].x
+			&& p_y < coin[i].y + TILE - 2 && p_y + TILE - 2 > coin[i].y)
+				return (i);
+		i++;
+	}
+	return(-1);
 }
 
 void	ft_hook(void *param)
@@ -36,6 +55,7 @@ void	ft_hook(void *param)
 	game = (t_game *)param;
 	new_x = game->texture->player_img->instances[0].x;
 	new_y = game->texture->player_img->instances[0].y;
+
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(game->mlx);
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
@@ -46,12 +66,14 @@ void	ft_hook(void *param)
 		new_y -= 5;
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_DOWN))
 		new_y += 5;
-	printf("%d,%d|%d,%d\n", game->texture->player_img->instances[0].x, game->texture->player_img->instances[0].y, game->texture->wall_img->instances[29].x, game->texture->wall_img->instances[29].y);
-	if (hit_wall(new_x, new_y, game->texture->wall_img->instances))
+	if (hit_wall(new_x, new_y, game->texture->wall_img->instances, 64))
 	{
 		game->texture->player_img->instances[0].x = new_x;
 		game->texture->player_img->instances[0].y = new_y;
 	}
+	int pos = hit_coin(new_x, new_y, game->texture->coin_img->instances, 4);
+	if (pos != -1)
+		game->texture->coin_img->instances[pos].enabled = false;
 }
 
 
