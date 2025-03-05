@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/04 17:32:34 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/05 02:01:48 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
 # define STD_ERROR 2
-# define GAME_TITLE "PACKMAN"
+# define GAME_TITLE "PAC MAN"
 
 typedef struct s_map_info
 {
@@ -45,14 +45,14 @@ typedef struct	s_player
 
 typedef struct	s_texture
 {
-	mlx_texture_t	*background;
-	mlx_image_t		*background_img;
+	mlx_texture_t	*bg;
+	mlx_image_t		*bg_img;
 	mlx_texture_t	*wall;
 	mlx_image_t		*wall_img;
 	mlx_texture_t	*player;
 	mlx_image_t		*player_img;
-	mlx_texture_t	*collectibles;
-	mlx_image_t		*collectibles_img;
+	mlx_texture_t	*coin;
+	mlx_image_t		*coin_img;
 	mlx_texture_t	*exit;
 	mlx_image_t		*exit_img;
 }				t_texture;
