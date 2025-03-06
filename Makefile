@@ -28,13 +28,18 @@ SRCS := ${MANDO}/so_long.c ${MANDO}/validate_map.c ${MANDO}/check_walls.c \
 		${GNL}/get_next_line.c ${GNL}/get_next_line_utils.c \
 		${UTILS}/error_handlers.c ${UTILS}/ft_strcmp.c ${UTILS}/ft_putstr_fd.c
 
+OBJS := ${SRCS:.c=.o}
+
 all: ${NAME}
 
-${NAME}: ${SRCS} ${MANDO}/so_long.h ${GNL}/get_next_line.h
-	${CC} ${CFLAGS} ${SRCS} ${MLX_FLAGS} ${MLX_LIB} ${AMLX} ${MLXINCLUDE} -o ${NAME}
+${NAME}: ${OBJS} ${MANDO}/so_long.h ${GNL}/get_next_line.h
+	${CC} ${CFLAGS} ${MLX_FLAGS} ${MLX_LIB} ${AMLX} ${MLXINCLUDE} ${OBJS} -o ${NAME}
+
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	@echo "CLEAN"
+	@${RM} ${OBJS}
 
 fclean: clean
 	@${RM} ${NAME}
