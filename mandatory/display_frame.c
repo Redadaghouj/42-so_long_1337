@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/06 02:07:54 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 02:50:46 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,7 @@ void	ft_hook(void *param)
 	new_x = game->texture->player_img->instances[0].x;
 	new_y = game->texture->player_img->instances[0].y;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
-	{
-		free_buffer(game->map);
-		free_textures(game->texture);
-		free_images(game->texture, game->mlx);
-		mlx_close_window(game->mlx);
-	}
+		exit_safe(game);
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
 		new_x += 5;
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))

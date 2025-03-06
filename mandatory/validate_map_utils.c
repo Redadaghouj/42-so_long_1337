@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:15:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/06 01:31:58 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 02:41:57 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	file_to_matrix(char *map_path, t_map_info *map_info)
 		i++;
 		line = get_next_line(fd);
 	}
-	free(line);
 	close(fd);
 	map_info->map[i] = NULL;
 }
