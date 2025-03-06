@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/06 01:09:32 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 02:04:44 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int		check_right_wall(char **map, int size);
 void	exit_msg(char *msg);
 void	free_map_and_exit(char **map, char *msg);
 void	ft_mlx_error(mlx_t *mlx);
+void	exit_safe(t_game *game);
 /* DISPLAY FRAME */
 void	display_frame(char *map_path, t_map_info *map_info);
 void	collision(t_game *game, int new_x, int new_y);
@@ -97,5 +98,8 @@ void	init_textures(t_texture *texture, mlx_t *mlx);
 void	init_images(t_texture *texture, mlx_t *mlx);
 int		collision_check(int p_x, int p_y, mlx_instance_t *wall, int len);
 int		collision_collect(int p_x, int p_y, mlx_instance_t *coin, int len);
+void	free_textures(t_texture *texture);
+void	free_images(t_texture *texture, mlx_t *mlx);
+void	close_button_handler(void *param);
 
 #endif

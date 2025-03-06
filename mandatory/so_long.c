@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/06 01:07:07 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 02:09:05 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ void	*free_buffer(char **buffer)
 	}
 	free(buffer);
 	return (NULL);
+}
+
+void	close_button_handler(void *param)
+{
+	t_game	*game;
+
+	game = (t_game *)param;
+	exit_safe(game);
 }
 
 void	init_map_info(t_map_info *map_info)
@@ -50,7 +58,8 @@ void	run_validate_map(char *map_path, t_player *player, t_map_info *map_info)
 		free_map_and_exit(map_info->map, "Error\nMap path is not valid.\n");
 	free_buffer(map_info->map);
 }
-void	ll()
+// -REMOVE-
+void	ll(void)
 {
 	system("leaks -q so_long");
 }
@@ -60,6 +69,7 @@ int	main(int argc, char *argv[])
 	t_map_info	map_info;
 	t_player	player;
 
+// -REMOVE-
 	atexit(ll);
 	if (argc != 2)
 		return (EXIT_FAILURE);

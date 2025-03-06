@@ -6,11 +6,26 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/06 01:24:10 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 02:07:54 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	collision_check(int p_x, int p_y, mlx_instance_t *wall, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (p_x < wall[i].x + T - 4 && p_x + T - 4 > wall[i].x
+			&& p_y < wall[i].y + T - 2 && p_y + T - 2 > wall[i].y)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void	ft_hook(void *param)
 {
@@ -24,7 +39,8 @@ void	ft_hook(void *param)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 	{
 		free_buffer(game->map);
-		free(game->texture);
+		free_textures(game->texture);
+		free_images(game->texture, game->mlx);
 		mlx_close_window(game->mlx);
 	}
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
@@ -59,11 +75,7 @@ void	collision(t_game *game, int new_x, int new_y)
 	}
 	if (!collision_check(new_x, new_y, game->texture->exit_img->instances, 1)
 		&& game->collect <= 0)
-	{
-		free_buffer(game->map);
-		free(game->texture);
-		mlx_close_window(game->mlx);
-	}
+		exit_safe(game);
 }
 
 int	display_images(mlx_t *mlx, t_texture *tx, t_map_info *map_info)
@@ -103,6 +115,8 @@ void	display_frame(char *map_path, t_map_info *map_info)
 	if (!game.mlx)
 		ft_mlx_error(game.mlx);
 	game.texture = (t_texture *) malloc(sizeof(t_texture));
+	if (!game.texture)
+		ft_mlx_error(game.mlx);
 	init_textures(game.texture, game.mlx);
 	init_images(game.texture, game.mlx);
 	if (display_images(game.mlx, game.texture, map_info))
@@ -110,6 +124,8 @@ void	display_frame(char *map_path, t_map_info *map_info)
 	game.collect = map_info->collectibles;
 	game.map = map_info->map;
 	mlx_loop_hook(game.mlx, ft_hook, &game);
+	mlx_close_hook(game.mlx, close_button_handler, &game);
 	mlx_loop(game.mlx);
+	free(game.texture);
 	mlx_terminate(game.mlx);
 }
