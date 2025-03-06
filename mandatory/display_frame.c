@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/06 00:35:17 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 01:24:10 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ void	ft_hook(void *param)
 	new_x = game->texture->player_img->instances[0].x;
 	new_y = game->texture->player_img->instances[0].y;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
+	{
+		free_buffer(game->map);
+		free(game->texture);
 		mlx_close_window(game->mlx);
+	}
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
 		new_x += 5;
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
@@ -48,12 +52,18 @@ void	collision(t_game *game, int new_x, int new_y)
 			game->texture->collect_img->count);
 	if (pos != -1)
 	{
+		game->texture->collect_img->instances[pos].x = -100;
+		game->texture->collect_img->instances[pos].y = -100;
 		game->texture->collect_img->instances[pos].enabled = false;
 		game->collect--;
 	}
 	if (!collision_check(new_x, new_y, game->texture->exit_img->instances, 1)
 		&& game->collect <= 0)
+	{
+		free_buffer(game->map);
+		free(game->texture);
 		mlx_close_window(game->mlx);
+	}
 }
 
 int	display_images(mlx_t *mlx, t_texture *tx, t_map_info *map_info)
@@ -84,24 +94,21 @@ int	display_images(mlx_t *mlx, t_texture *tx, t_map_info *map_info)
 	return (EXIT_SUCCESS);
 }
 
-void	display_frame(char *map_path, t_player player, t_map_info *map_info)
+void	display_frame(char *map_path, t_map_info *map_info)
 {
 	t_game	game;
 
-	(void)player;
 	file_to_matrix(map_path, map_info);
 	game.mlx = mlx_init(map_info->rows * T, map_info->lines * T, TITLE, true);
 	if (!game.mlx)
 		ft_mlx_error(game.mlx);
-	game.texture = malloc(sizeof(t_texture));
+	game.texture = (t_texture *) malloc(sizeof(t_texture));
 	init_textures(game.texture, game.mlx);
 	init_images(game.texture, game.mlx);
 	if (display_images(game.mlx, game.texture, map_info))
-	{
-		mlx_close_window(game.mlx);
 		ft_mlx_error(game.mlx);
-	}
 	game.collect = map_info->collectibles;
+	game.map = map_info->map;
 	mlx_loop_hook(game.mlx, ft_hook, &game);
 	mlx_loop(game.mlx);
 	mlx_terminate(game.mlx);

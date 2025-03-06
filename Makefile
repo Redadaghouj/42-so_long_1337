@@ -1,6 +1,6 @@
 CC := cc
 
-CFLAGS := -Wall -Wextra -Werror -fsanitize=address
+CFLAGS := -Wall -Wextra -Werror
 # CFLAGS := -Wall -Wextra -Werror -fsanitize=address
 # CFLAGS := -Wall -Wextra -Werror -w -fsanitize=address
 # CFLAGS := -Wall -Wextra -Werror -w
@@ -23,7 +23,7 @@ UTILS := mandatory/utils
 
 GNL := mandatory/gnl
 
-SRCS := ${MANDO}/so_long.c ${MANDO}/validate_map.c ${MANDO}/so_long_utils.c ${MANDO}/check_walls.c \
+SRCS := ${MANDO}/so_long.c ${MANDO}/validate_map.c ${MANDO}/check_walls.c \
 		${MANDO}/validate_map_utils.c ${MANDO}/display_frame.c ${MANDO}/display_frame_utils.c\
 		${GNL}/get_next_line.c ${GNL}/get_next_line_utils.c \
 		${UTILS}/error_handlers.c ${UTILS}/ft_strcmp.c ${UTILS}/ft_putstr_fd.c

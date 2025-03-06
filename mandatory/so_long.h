@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/06 00:40:38 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 01:09:32 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,15 @@ typedef struct s_game
 	mlx_t			*mlx;
 	t_texture		*texture;
 	int				collect;
+	char			**map;
 }				t_game;
 
+/* SO_LONG */
+void	*free_buffer(char **buffer);
 /* UTILS */
 void	ft_putstr_fd(char *str, int fd);
 int		ft_strlen(const char *s);
 int		ft_strcmp(char *s1, char *s2);
-/* SO_LONG_UTILS */
-void	*free_buffer(char **buffer);
-void	init_map_info(t_map_info *map_info);
-void	init_player(t_player *player);
 /* VALIDATE MAP */
 void	validate_map(char *map_path, t_map_info *map_info, t_player *player);
 int		is_not_closed(char **map, int size);
@@ -91,7 +90,7 @@ void	exit_msg(char *msg);
 void	free_map_and_exit(char **map, char *msg);
 void	ft_mlx_error(mlx_t *mlx);
 /* DISPLAY FRAME */
-void	display_frame(char *map_path, t_player player, t_map_info *map_info);
+void	display_frame(char *map_path, t_map_info *map_info);
 void	collision(t_game *game, int new_x, int new_y);
 /* DISPLAY FRAME UTILS */
 void	init_textures(t_texture *texture, mlx_t *mlx);

@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:15:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/06 00:38:13 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 01:05:59 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,9 @@ void	file_to_matrix(char *map_path, t_map_info *map_info)
 	while (line)
 	{
 		map_info->map[i] = line;
-		if (!map_info->map[i++])
+		if (!map_info->map[i])
 			free_map_and_exit(map_info->map, "Error\nMalloc failed.\n");
+		i++;
 		line = get_next_line(fd);
 	}
 	close(fd);
@@ -78,8 +79,6 @@ void	check_player_position(t_player *player, int line_num, char *line)
 {
 	int	i;
 
-	if (player->x != -1)
-		return ;
 	i = 0;
 	while (line[i])
 	{
