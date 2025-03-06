@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:15:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/01 21:43:31 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 00:38:13 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	check_player_position(t_player *player, int line_num, char *line)
 		{
 			player->x = i;
 			player->y = line_num;
-			break;
+			break ;
 		}
 		i++;
 	}

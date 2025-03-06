@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/05 16:39:07 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 00:40:38 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define TILE 64
+# define T 64
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
 # define STD_ERROR 2
-# define GAME_TITLE "PAC MAN"
+# define TITLE "PAC MAN"
 
 typedef struct s_map_info
 {
@@ -32,18 +32,17 @@ typedef struct s_map_info
 	int		player;
 	int		collectibles;
 	int		path_checker;
-	int 	rows;
-	int 	lines;
+	int		rows;
+	int		lines;
 }				t_map_info;
 
-typedef struct	s_player
+typedef struct s_player
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 }				t_player;
 
-
-typedef struct	s_texture
+typedef struct s_texture
 {
 	mlx_texture_t	*bg;
 	mlx_image_t		*bg_img;
@@ -51,16 +50,17 @@ typedef struct	s_texture
 	mlx_image_t		*wall_img;
 	mlx_texture_t	*player;
 	mlx_image_t		*player_img;
-	mlx_texture_t	*coin;
-	mlx_image_t		*coin_img;
+	mlx_texture_t	*collect;
+	mlx_image_t		*collect_img;
 	mlx_texture_t	*exit;
 	mlx_image_t		*exit_img;
 }				t_texture;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	mlx_t			*mlx;
 	t_texture		*texture;
+	int				collect;
 }				t_game;
 
 /* UTILS */
@@ -92,5 +92,11 @@ void	free_map_and_exit(char **map, char *msg);
 void	ft_mlx_error(mlx_t *mlx);
 /* DISPLAY FRAME */
 void	display_frame(char *map_path, t_player player, t_map_info *map_info);
+void	collision(t_game *game, int new_x, int new_y);
+/* DISPLAY FRAME UTILS */
+void	init_textures(t_texture *texture, mlx_t *mlx);
+void	init_images(t_texture *texture, mlx_t *mlx);
+int		collision_check(int p_x, int p_y, mlx_instance_t *wall, int len);
+int		collision_collect(int p_x, int p_y, mlx_instance_t *coin, int len);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:29:56 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/01 18:18:56 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/06 00:37:48 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,3 @@ void	validate_map(char *map_path, t_map_info *map_info, t_player *player)
 	close(fd);
 	check_characters(*map_info);
 }
-
-
-/*	FIX: validate map
-----------------------
-	0 for an empty space
-	1 for wall
-	C for collectible
-	E for a map exit
-	P for the player starting pos
-	------------------------------
-	1 exit ✅
-	1 collectible ✅
-	1 starting position ✅
-	------------------------------
-	The map must be rectangular ✅
-	The extension must be .ber ✅
-	The map must be closed/surrounded by wall ✅
-	check if there’s a valid path in the map
-*/
