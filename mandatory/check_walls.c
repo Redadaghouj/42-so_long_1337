@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 21:51:42 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/01 17:47:34 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/07 02:21:04 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,10 @@ int	check_right_wall(char **map, int size)
 		i++;
 	}
 	return (EXIT_SUCCESS);
+}
+
+void	check_window(int lines, int rows)
+{
+	if (rows > 40 || lines > 20)
+		exit_msg("Error\nSO_LONG my friend :)\n");
 }

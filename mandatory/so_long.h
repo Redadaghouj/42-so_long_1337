@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:26:55 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/07 02:18:51 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int		check_upper_wall(char **map);
 int		check_lower_wall(char **map, int size);
 int		check_left_wall(char **map, int size);
 int		check_right_wall(char **map, int size);
+void	check_window(int lines, int rows);
 /* ERROR HANDLERS */
 void	exit_msg(char *msg);
 void	free_map_and_exit(char **map, char *msg);
