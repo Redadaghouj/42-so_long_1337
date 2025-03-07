@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_frame_utils.c                              :+:      :+:    :+:   */
+/*   display_frame_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:24:36 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/07 01:35:18 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	init_textures(t_texture *texture)
 {
-	texture->wall = mlx_load_png("mandatory/images/wall.png");
-	texture->player = mlx_load_png("mandatory/images/player.png");
-	texture->collect = mlx_load_png("mandatory/images/collect.png");
-	texture->exit = mlx_load_png("mandatory/images/exit.png");
+	texture->wall = mlx_load_png("bonus/images_bonus/wall_bonus.png");
+	texture->player = mlx_load_png("bonus/images_bonus/player_bonus.png");
+	texture->collect = mlx_load_png("bonus/images_bonus/collect_bonus.png");
+	texture->exit = mlx_load_png("bonus/images_bonus/exit_bonus.png");
 	if (!texture->wall || !texture->player
 		|| !texture->collect || !texture->exit)
 		return (EXIT_FAILURE);
