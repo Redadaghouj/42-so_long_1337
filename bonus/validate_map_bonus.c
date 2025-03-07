@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:29:56 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:34:31 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/07 02:29:32 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ void	validate_map(char *map_path, t_map_info *map_info, t_player *player)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	check_window(map_info->lines, map_info->rows);
 	check_characters(*map_info);
 }
