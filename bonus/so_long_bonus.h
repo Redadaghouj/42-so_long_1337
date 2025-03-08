@@ -6,14 +6,13 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 02:18:55 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 16:15:40 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
-# include <stdio.h> // -REMOVE-
 # include "../MLX42/MLX42.h"
 # include "gnl_bonus/get_next_line_bonus.h"
 # include <unistd.h>

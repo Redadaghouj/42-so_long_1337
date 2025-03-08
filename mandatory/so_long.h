@@ -6,14 +6,13 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:45:53 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 16:15:59 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <stdio.h> // -REMOVE-
 # include "../MLX42/MLX42.h"
 # include "gnl/get_next_line.h"
 # include <unistd.h>
