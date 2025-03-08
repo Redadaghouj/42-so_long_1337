@@ -1,7 +1,7 @@
 CC := cc
 
-# CFLAGS := -Wall -Wextra -Werror
-CFLAGS := -Wall -Wextra -Werror -fsanitize=address
+CFLAGS := -Wall -Wextra -Werror
+# CFLAGS := -Wall -Wextra -Werror -fsanitize=address
 # CFLAGS := -Wall -Wextra -Werror -w -fsanitize=address
 # CFLAGS := -Wall -Wextra -Werror -w
 
@@ -36,10 +36,10 @@ SRCS := ${MANDO}/so_long.c ${MANDO}/validate_map.c ${MANDO}/check_walls.c ${MAND
 		${UTILS}/error_handlers.c ${UTILS}/ft_strcmp.c ${UTILS}/ft_putstr_fd.c ${UTILS}/ft_putchar.c \
 		${GNL}/get_next_line.c ${GNL}/get_next_line_utils.c
 
-SRCS_BNS := ${BNS}/so_long_bonus.c ${BNS}/validate_map_bonus.c ${BNS}/check_walls_bonus.c ${BNS}/print_steps_bonus.c \
-		${BNS}/validate_map_utils_bonus.c ${BNS}/display_frame_bonus.c ${BNS}/display_frame_utils_bonus.c \
+SRCS_BNS := ${BNS}/so_long_bonus.c ${BNS}/so_long_utils_bonus.c ${BNS}/validate_map_bonus.c ${BNS}/check_walls_bonus.c ${BNS}/sprite_animations.c \
+		${BNS}/print_steps_bonus.c ${BNS}/validate_map_utils_bonus.c ${BNS}/display_frame_bonus.c ${BNS}/display_frame_utils_bonus.c \
 		${UTILS_BNS}/error_handlers_bonus.c ${UTILS_BNS}/ft_strcmp_bonus.c ${UTILS_BNS}/ft_putstr_fd_bonus.c \
-		${UTILS_BNS}/ft_putchar_bonus.c \
+		${UTILS_BNS}/ft_putchar_bonus.c ${UTILS_BNS}/ft_memcpy_bonus.c \
 		${GNL_BNS}/get_next_line_bonus.c ${GNL_BNS}/get_next_line_utils_bonus.c
 
 OBJS := ${SRCS:.c=.o}

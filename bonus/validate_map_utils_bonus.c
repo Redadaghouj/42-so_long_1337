@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:15:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:34:34 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:12:26 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	flood_fill(t_map_info *map_info, int y, int x)
 {
 	if (y >= map_info->lines || x >= map_info->rows)
 		return ;
-	if (map_info->map[y][x] == '1' || map_info->map[y][x] == 'F')
+	if (map_info->map[y][x] == '1' || map_info->map[y][x] == 'F'
+		|| map_info->map[y][x] == 'X')
 		return ;
 	if (map_info->map[y][x] == 'E' || map_info->map[y][x] == 'C')
 		map_info->path_checker++;

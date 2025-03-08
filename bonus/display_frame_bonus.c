@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:34:13 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:10:34 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,18 @@ void	ft_hook(void *param)
 	game = (t_game *)param;
 	new_x = game->texture->player_img->instances[0].x;
 	new_y = game->texture->player_img->instances[0].y;
+	game->counter++;
+	enemy_frame_change(game);
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(game->mlx);
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
-		new_x += print_steps(&game->steps_counter);
+		new_x += handle_key_press(*game, "bonus/image_bonus/p_right_bonus.png");
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
-		new_x -= print_steps(&game->steps_counter);
+		new_x -= handle_key_press(*game, "bonus/image_bonus/p_left_bonus.png");
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_UP))
-		new_y -= print_steps(&game->steps_counter);
+		new_y -= handle_key_press(*game, "bonus/image_bonus/p_up_bonus.png");
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_DOWN))
-		new_y += print_steps(&game->steps_counter);
+		new_y += handle_key_press(*game, "bonus/image_bonus/p_down_bonus.png");
 	collision(game, new_x, new_y);
 }
 
@@ -64,20 +66,23 @@ void	collision(t_game *game, int new_x, int new_y)
 	if (pos != -1)
 	{
 		game->texture->collect_img->instances[pos].x = -100;
-		game->texture->collect_img->instances[pos].y = -100;
 		game->texture->collect_img->instances[pos].enabled = false;
 		game->collect--;
 	}
+	if (game->collect == 0)
+		sprite_animation_door(*game);
 	if (!collision_check(new_x, new_y, game->texture->exit_img->instances, 1)
 		&& game->collect <= 0)
 		mlx_close_window(game->mlx);
+	if (!collision_check(new_x, new_y, game->texture->enemy_img->instances,
+			game->texture->enemy_img->count))
+		mlx_close_window(game->mlx);
 }
 
-int	display_images(mlx_t *mlx, t_texture *tx, t_map_info *map_info)
+int	display_images(mlx_t *mlx, t_texture *tx, t_map_info *map_info, int flag)
 {
 	int	i;
 	int	j;
-	int	flag;
 
 	i = -1;
 	flag = 0;
@@ -94,6 +99,8 @@ int	display_images(mlx_t *mlx, t_texture *tx, t_map_info *map_info)
 				flag = mlx_image_to_window(mlx, tx->player_img, j * T, i * T);
 			else if (map_info->map[i][j] == 'E')
 				flag = mlx_image_to_window(mlx, tx->exit_img, j * T, i * T);
+			else if (map_info->map[i][j] == 'X')
+				flag = mlx_image_to_window(mlx, tx->enemy_img, j * T, i * T);
 		}
 		if (flag == -1)
 			return (EXIT_FAILURE);
@@ -117,11 +124,9 @@ void	display_frame(char *map_path, t_map_info *map_info)
 		ft_putstr_fd("Error\nFail to load (texture\\image)\n", 2);
 		exit_safe(game);
 	}
-	if (display_images(game.mlx, game.texture, map_info))
+	if (display_images(game.mlx, game.texture, map_info, 0))
 		exit_safe(game);
-	game.collect = map_info->collectibles;
-	game.map = map_info->map;
-	game.steps_counter = 1;
+	init_game(&game, *map_info);
 	mlx_loop_hook(game.mlx, ft_hook, &game);
 	mlx_close_hook(game.mlx, close_button_handler, &game);
 	mlx_loop(game.mlx);

@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:29:56 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 02:29:32 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:00:17 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	count_characters(t_map_info *map_info, char *line)
 			map_info->exit++;
 		else if (line[i] == 'P')
 			map_info->player++;
+		else if (line[i] == 'X')
+			map_info->enemy++;
 		i++;
 	}
 }
@@ -34,9 +36,11 @@ void	check_characters(t_map_info map_info)
 	if (map_info.collectibles <= 0)
 		exit_msg("Error\nInvalid number of collectibles.\n");
 	if (map_info.exit <= 0 || map_info.exit > 1)
-		exit_msg("Error\nInvalid number of exits.\n");
+		exit_msg("Error\nInvalid number of exit.\n");
 	if (map_info.player <= 0 || map_info.player > 1)
-		exit_msg("Error\nInvalid number of players.\n");
+		exit_msg("Error\nInvalid number of player.\n");
+	if (map_info.enemy <= 0 || map_info.enemy > 3)
+		exit_msg("Error\nInvalid number of enemy.\n");
 }
 
 void	check_rectangle(int first_line, char *line)

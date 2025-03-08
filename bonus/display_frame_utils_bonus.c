@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:35:18 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:15:15 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	init_textures(t_texture *texture)
 {
-	texture->wall = mlx_load_png("bonus/images_bonus/wall_bonus.png");
-	texture->player = mlx_load_png("bonus/images_bonus/player_bonus.png");
-	texture->collect = mlx_load_png("bonus/images_bonus/collect_bonus.png");
-	texture->exit = mlx_load_png("bonus/images_bonus/exit_bonus.png");
-	if (!texture->wall || !texture->player
+	texture->wall = mlx_load_png("bonus/image_bonus/wall_bonus.png");
+	texture->player = mlx_load_png("bonus/image_bonus/p_right_bonus.png");
+	texture->collect = mlx_load_png("bonus/image_bonus/collect_bonus.png");
+	texture->exit = mlx_load_png("bonus/image_bonus/exit_bonus.png");
+	texture->enemy = mlx_load_png("bonus/image_bonus/enemy_2_bonus.png");
+	if (!texture->wall || !texture->player || !texture->enemy
 		|| !texture->collect || !texture->exit)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
@@ -30,7 +31,8 @@ int	init_images(t_texture *texture, mlx_t *mlx)
 	texture->player_img = mlx_texture_to_image(mlx, texture->player);
 	texture->collect_img = mlx_texture_to_image(mlx, texture->collect);
 	texture->exit_img = mlx_texture_to_image(mlx, texture->exit);
-	if (!texture->wall_img || !texture->player_img
+	texture->enemy_img = mlx_texture_to_image(mlx, texture->enemy);
+	if (!texture->wall_img || !texture->player_img || !texture->enemy_img
 		|| !texture->collect_img || !texture->exit_img)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
@@ -61,6 +63,8 @@ void	free_textures(t_texture *texture)
 		mlx_delete_texture(texture->collect);
 	if (texture->exit)
 		mlx_delete_texture(texture->exit);
+	if (texture->enemy)
+		mlx_delete_texture(texture->enemy);
 }
 
 void	free_images(t_texture *texture, mlx_t *mlx)
@@ -73,4 +77,6 @@ void	free_images(t_texture *texture, mlx_t *mlx)
 		mlx_delete_image(mlx, texture->collect_img);
 	if (texture->exit_img)
 		mlx_delete_image(mlx, texture->exit_img);
+	if (texture->enemy_img)
+		mlx_delete_image(mlx, texture->enemy_img);
 }

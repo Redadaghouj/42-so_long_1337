@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:34:27 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:52:14 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ void	init_map_info(t_map_info *map_info)
 	map_info->map = NULL;
 	map_info->collectibles = 0;
 	map_info->exit = 0;
-	map_info->path_checker = 0;
 	map_info->player = 0;
+	map_info->enemy = 0;
+	map_info->path_checker = 0;
 	map_info->lines = 0;
 	map_info->rows = 0;
 }
@@ -59,11 +60,17 @@ void	run_validate_map(char *map_path, t_player *player, t_map_info *map_info)
 	free_buffer(map_info->map);
 }
 
+void	ll(void)
+{
+	system("leaks -q so_long_bonus");
+}
+
 int	main(int argc, char *argv[])
 {
 	t_map_info	map_info;
 	t_player	player;
 
+	atexit(ll);
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	run_validate_map(argv[1], &player, &map_info);
