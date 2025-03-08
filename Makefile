@@ -45,6 +45,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJS} ${MANDO}/so_long.h ${GNL}/get_next_line.h
 	${CC} ${CFLAGS} ${MLX_FLAGS} ${MLX_LIB} ${AMLX} ${MLXINCLUDE} ${OBJS} -o ${NAME}
+	@${RM} ${OBJS_BNS}
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
@@ -53,6 +54,7 @@ bonus: .bonus
 
 .bonus: ${OBJS_BNS} ${BNS}/so_long_bonus.h ${GNL_BNS}/get_next_line_bonus.h
 	${CC} ${CFLAGS} ${MLX_FLAGS} ${MLX_LIB} ${AMLX} ${MLXINCLUDE} ${OBJS_BNS} -o ${NAME}
+	@${RM} ${OBJS}
 	@touch .bonus
 
 bonus/%.o: bonus/%.c
