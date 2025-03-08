@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 00:29:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:44:57 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 02:21:39 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	print_steps(t_game *game)
 	char	*steps;
 
 	steps = ft_itoa(game->steps_counter);
-	mlx_image_to_window(game->mlx, game->texture->wall_img, 0, 0);
-	mlx_put_string(game->mlx, "Steps", 10, 10);
-	mlx_put_string(game->mlx, steps, 10, 30);
+	if (game->steps_text)
+		mlx_delete_image(game->mlx, game->steps_text);
+	game->steps_text = mlx_put_string(game->mlx, steps, 10, 30);
 	game->steps_counter++;
 	free(steps);
 }

@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:45:40 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 02:18:55 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_game
 	int				steps_counter;
 	int				counter;
 	int				enemy_state; 
+	mlx_image_t		*steps_text;
 }				t_game;
 
 /* SO_LONG BONUS */

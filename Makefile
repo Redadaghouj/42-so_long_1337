@@ -1,9 +1,6 @@
 CC := cc
 
 CFLAGS := -Wall -Wextra -Werror
-# CFLAGS := -Wall -Wextra -Werror -fsanitize=address
-# CFLAGS := -Wall -Wextra -Werror -w -fsanitize=address
-# CFLAGS := -Wall -Wextra -Werror -w
 
 MLX_FLAGS := -framework Cocoa -framework OpenGL -framework IOKit
 
@@ -22,8 +19,6 @@ MANDO := mandatory
 UTILS := mandatory/utils
 
 GNL := mandatory/gnl
-
-NAME_BNS := so_long_bonus
 
 BNS := bonus
 
@@ -54,19 +49,19 @@ ${NAME}: ${OBJS} ${MANDO}/so_long.h ${GNL}/get_next_line.h
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
 
-bonus: ${NAME_BNS}
 
-${NAME_BNS}: ${OBJS_BNS} ${BNS}/so_long_bonus.h ${GNL_BNS}/get_next_line_bonus.h
-	${CC} ${CFLAGS} ${MLX_FLAGS} ${MLX_LIB} ${AMLX} ${MLXINCLUDE} ${OBJS_BNS} -o ${NAME_BNS}
+bonus : ${OBJS_BNS} ${BNS}/so_long_bonus.h ${GNL_BNS}/get_next_line_bonus.h
+	${CC} ${CFLAGS} ${MLX_FLAGS} ${MLX_LIB} ${AMLX} ${MLXINCLUDE} ${OBJS_BNS} -o ${NAME}
+	@touch .bonus
 
 bonus/%.o: bonus/%.c
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	@${RM} ${OBJS} ${OBJS_BNS}
+	@${RM} ${OBJS} ${OBJS_BNS} .bonus
 
 fclean: clean
-	@${RM} ${NAME} ${NAME_BNS}
+	@${RM} ${NAME}
 
 re: fclean all
 

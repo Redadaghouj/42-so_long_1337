@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 17:52:14 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 02:03:42 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	run_validate_map(char *map_path, t_player *player, t_map_info *map_info)
 
 void	ll(void)
 {
-	system("leaks -q so_long_bonus");
+	system("leaks -q so_long");
 }
 
 int	main(int argc, char *argv[])

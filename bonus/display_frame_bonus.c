@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:30:52 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 02:19:50 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ void	display_frame(char *map_path, t_map_info *map_info)
 	if (display_images(game.mlx, game.texture, map_info, 0))
 		exit_safe(game);
 	init_game(&game, *map_info);
+	mlx_put_string(game.mlx, "Steps", 10, 10);
 	mlx_loop_hook(game.mlx, ft_hook, &game);
 	mlx_close_hook(game.mlx, close_button_handler, &game);
 	mlx_loop(game.mlx);
