@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 16:15:59 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:17:18 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_map_info
 	int		exit;
 	int		player;
 	int		collectibles;
+	int		wrong_chars;
 	int		path_checker;
 	int		rows;
 	int		lines;

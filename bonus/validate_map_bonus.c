@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:29:56 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 15:00:17 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:26:20 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	count_characters(t_map_info *map_info, char *line)
 			map_info->player++;
 		else if (line[i] == 'X')
 			map_info->enemy++;
+		else if (line[i] != '0' && line[i] != '1')
+			map_info->wrong_chars = 1;
 		i++;
 	}
 }
@@ -41,6 +43,8 @@ void	check_characters(t_map_info map_info)
 		exit_msg("Error\nInvalid number of player.\n");
 	if (map_info.enemy <= 0 || map_info.enemy > 3)
 		exit_msg("Error\nInvalid number of enemy.\n");
+	if (map_info.wrong_chars)
+		exit_msg("Error\nInvalid character.\n");
 }
 
 void	check_rectangle(int first_line, char *line)
@@ -49,7 +53,7 @@ void	check_rectangle(int first_line, char *line)
 	{
 		free(line);
 		line = NULL;
-		exit_msg("Error\nThe map is not rectangular.\n");
+		exit_msg("Error\nNo rectangular.\n");
 	}
 }
 

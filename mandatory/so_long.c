@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:44:52 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 23:46:33 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:17:51 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	init_map_info(t_map_info *map_info)
 {
 	map_info->map = NULL;
 	map_info->collectibles = 0;
+	map_info->wrong_chars = 0;
 	map_info->exit = 0;
 	map_info->path_checker = 0;
 	map_info->player = 0;
@@ -48,12 +49,12 @@ void	init_map_info(t_map_info *map_info)
 void	run_validate_map(char *map_path, t_player *player, t_map_info *map_info)
 {
 	if (is_wrong_ext(map_path))
-		exit_msg("Error\nInvalid file extension.\n");
+		exit_msg("Error\nBad extension.\n");
 	init_map_info(map_info);
 	validate_map(map_path, map_info, player);
 	file_to_matrix(map_path, map_info);
 	if (is_not_closed(map_info->map, map_info->lines - 1))
-		free_map_and_exit(map_info->map, "Error\nMap not closed.\n");
+		free_map_and_exit(map_info->map, "Error\nNot surrounded by walls.\n");
 	if (is_not_valid_path(map_info, *player))
 		free_map_and_exit(map_info->map, "Error\nMap path is not valid.\n");
 	free_buffer(map_info->map);
