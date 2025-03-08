@@ -6,7 +6,7 @@ MLX_FLAGS := -framework Cocoa -framework OpenGL -framework IOKit
 
 MLX_LIB := -lglfw3
 
-MLXINCLUDE := -I./MLX42/ -L./MLX42
+MLXINCLUDE := -I ./MLX42/ -L ./MLX42
 
 AMLX := ./MLX42/libmlx42.a
 
@@ -49,8 +49,9 @@ ${NAME}: ${OBJS} ${MANDO}/so_long.h ${GNL}/get_next_line.h
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
 
+bonus: .bonus
 
-bonus : ${OBJS_BNS} ${BNS}/so_long_bonus.h ${GNL_BNS}/get_next_line_bonus.h
+.bonus: ${OBJS_BNS} ${BNS}/so_long_bonus.h ${GNL_BNS}/get_next_line_bonus.h
 	${CC} ${CFLAGS} ${MLX_FLAGS} ${MLX_LIB} ${AMLX} ${MLXINCLUDE} ${OBJS_BNS} -o ${NAME}
 	@touch .bonus
 
