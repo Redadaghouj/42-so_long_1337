@@ -14,7 +14,7 @@
 - **Event Handling:** Handles keyboard inputs (arrow keys) for player movement.
 - **Collision Detection:** Uses **AABB (Axis-Aligned Bounding Box)** method for collision detection.
 - **Map Parsing:** Reads and validates maps from `.ber` files.
-- **Bonus Features:** Includes enemy patrols and sprite animations.
+- **Bonus Features:** Includes enemy patrols (**X**) and sprite animations.
 - **Graphic Rendering:** Displays textures, sprites, and collectibles.
 
 ---
@@ -70,7 +70,7 @@
 ├── 📂 MLX42
 ├── Makefile
 ├── README.md
-```  
+```
 
 ---
 
@@ -121,9 +121,43 @@ make re
   - **1 Player (P)**
   - **1 Exit (E)**
   - **At least 1 Collectible (C)**
+  - **Between 1 and 3 Enemies (X)** (Bonus only)
 - The map must be surrounded by walls (**1**).
 - The map must be rectangular.
 - The map must have a valid path for the player to collect all items and reach the exit.
+
+---
+
+### Example of a Valid Map  
+
+```plaintext  
+1111111111111
+10010000000C1
+1000011111001
+1P0011E000001
+1111111111111
+```  
+
+### Example of an Invalid Map  
+
+```plaintext  
+1111111111111
+10010000000C1
+1000011111001
+1P0011E000001
+111111111111
+```  
+*(Invalid because the last row is missing a wall)*  
+
+---
+
+## 🖼️ Game Screenshots  
+
+### Mandatory  
+![Mandatory Game Screenshot](images/mandatory_game.png)  
+
+### Bonus  
+![Bonus Game Screenshot](images/bonus_game.png)  
 
 ---
 
@@ -139,7 +173,7 @@ make re
 
 - Mastered **MiniLibX** for window and graphic management.
 - Implemented **AABB collision detection** for smooth gameplay.
-- Added **enemy patrols** and **sprite animations** as bonus features.
+- Added **enemy patrols (X)** and **sprite animations** as bonus features.
 - Gained experience in **2D game development** and **event handling**.
 
 ---
@@ -147,7 +181,3 @@ make re
 ## 🛡️ License  
 
 This project is part of the **1337 curriculum**. It is shared here for educational purposes and should not be used for plagiarism.
-
----
-
-Feel free to customize this README further to better fit your project's specifics!
