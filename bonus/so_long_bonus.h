@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:12:59 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:45:40 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ typedef struct s_player
 
 typedef struct s_texture
 {
-	mlx_texture_t	*bg;
-	mlx_image_t		*bg_img;
 	mlx_texture_t	*wall;
 	mlx_image_t		*wall_img;
 	mlx_texture_t	*player;
@@ -76,7 +74,7 @@ typedef struct s_game
 void	*free_buffer(char **buffer);
 /* SO_LONG UTILS BONUS */
 void	init_game(t_game *game, t_map_info map_info);
-int		handle_key_press(t_game game, char *image_path);
+int		handle_key_press(t_game *game, char *image_path);
 void	enemy_frame_change(t_game *game);
 /* UTILS BONUS */
 void	ft_putstr_fd(char *str, int fd);
@@ -118,7 +116,7 @@ void	free_textures(t_texture *texture);
 void	free_images(t_texture *texture, mlx_t *mlx);
 void	close_button_handler(void *param);
 /* PRINT STEPS BONUS */
-int		print_steps(int *steps_counter);
+void	print_steps(t_game *game);
 /* SPRITE_ANIMATION */
 void	sprite_animation(t_game game, char *img_path);
 void	sprite_animation_enemy(t_game game);

@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 02:18:51 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:45:53 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ typedef struct s_player
 
 typedef struct s_texture
 {
-	mlx_texture_t	*bg;
-	mlx_image_t		*bg_img;
 	mlx_texture_t	*wall;
 	mlx_image_t		*wall_img;
 	mlx_texture_t	*player;

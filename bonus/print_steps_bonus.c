@@ -6,40 +6,68 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 00:29:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:34:24 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:44:57 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	ft_putnbr(int n)
+int	count_digits(int n, int *sign)
 {
-	if (n == -2147483648)
+	int	i;
+
+	i = 0;
+	if (n < 0)
 	{
-		ft_putstr_fd("-2147483648", 1);
-		return ;
+		n = -n;
+		i++;
+		*sign = 1;
 	}
-	else if (n < 0)
+	while (n > 0)
 	{
-		ft_putchar('-');
-		ft_putnbr(n * -1);
+		i++;
+		n /= 10;
 	}
-	else if (n >= 0 && n <= 9)
-	{
-		ft_putchar(n + '0');
-	}
-	else
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
+	return (i);
 }
 
-int	print_steps(int *steps_counter)
+char	*ft_itoa(int n)
 {
-	ft_putstr_fd("steps: ", 1);
-	ft_putnbr(*steps_counter);
-	ft_putchar('\n');
-	(*steps_counter)++;
-	return (5);
+	char	*str;
+	int		sign;
+	int		i;
+
+	if (n == 0)
+		return (ft_strdup("0"));
+	else if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	sign = 0;
+	i = count_digits(n, &sign);
+	str = (char *) malloc(i * sizeof(char) + 1);
+	if (!str)
+		return (NULL);
+	str[i--] = '\0';
+	if (sign)
+	{
+		str[0] = '-';
+		n = -n;
+	}
+	while (n > 0)
+	{
+		str[i--] = (n % 10) + '0';
+		n /= 10;
+	}
+	return (str);
+}
+
+void	print_steps(t_game *game)
+{
+	char	*steps;
+
+	steps = ft_itoa(game->steps_counter);
+	mlx_image_to_window(game->mlx, game->texture->wall_img, 0, 0);
+	mlx_put_string(game->mlx, "Steps", 10, 10);
+	mlx_put_string(game->mlx, steps, 10, 30);
+	game->steps_counter++;
+	free(steps);
 }

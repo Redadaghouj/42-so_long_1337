@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:10:34 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:30:52 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	ft_hook(void *param)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(game->mlx);
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
-		new_x += handle_key_press(*game, "bonus/image_bonus/p_right_bonus.png");
+		new_x += handle_key_press(game, "bonus/image_bonus/p_right_bonus.png");
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
-		new_x -= handle_key_press(*game, "bonus/image_bonus/p_left_bonus.png");
+		new_x -= handle_key_press(game, "bonus/image_bonus/p_left_bonus.png");
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_UP))
-		new_y -= handle_key_press(*game, "bonus/image_bonus/p_up_bonus.png");
+		new_y -= handle_key_press(game, "bonus/image_bonus/p_up_bonus.png");
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_DOWN))
-		new_y += handle_key_press(*game, "bonus/image_bonus/p_down_bonus.png");
+		new_y += handle_key_press(game, "bonus/image_bonus/p_down_bonus.png");
 	collision(game, new_x, new_y);
 }
 
