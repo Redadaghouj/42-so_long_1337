@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:15:15 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:32:58 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	init_textures(t_texture *texture)
 {
-	texture->wall = mlx_load_png("bonus/image_bonus/wall_bonus.png");
-	texture->player = mlx_load_png("bonus/image_bonus/p_right_bonus.png");
-	texture->collect = mlx_load_png("bonus/image_bonus/collect_bonus.png");
-	texture->exit = mlx_load_png("bonus/image_bonus/exit_bonus.png");
-	texture->enemy = mlx_load_png("bonus/image_bonus/enemy_2_bonus.png");
+	texture->wall = mlx_load_png("bonus/textures/wall_bonus.png");
+	texture->player = mlx_load_png("bonus/textures/p_right_bonus.png");
+	texture->collect = mlx_load_png("bonus/textures/collect_bonus.png");
+	texture->exit = mlx_load_png("bonus/textures/exit_bonus.png");
+	texture->enemy = mlx_load_png("bonus/textures/enemy_2_bonus.png");
 	if (!texture->wall || !texture->player || !texture->enemy
 		|| !texture->collect || !texture->exit)
 		return (EXIT_FAILURE);

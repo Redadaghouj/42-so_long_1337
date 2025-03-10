@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:46:57 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/10 00:15:58 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:32:58 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	init_game(t_game *game, t_map_info map_info)
 	game->steps_counter = 1;
 	game->counter = 0;
 	game->enemy_state = 0;
-	game->enemy_imgs[0] = "bonus/image_bonus/enemy_2_bonus.png";
-	game->enemy_imgs[1] = "bonus/image_bonus/enemy_bonus.png";
+	game->enemy_imgs[0] = "bonus/textures/enemy_2_bonus.png";
+	game->enemy_imgs[1] = "bonus/textures/enemy_bonus.png";
 }
 
 int	key_press(t_game *game, char *image_path, int x, int y)

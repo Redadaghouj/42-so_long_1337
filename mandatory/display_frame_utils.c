@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:24:36 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:32:25 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	init_textures(t_texture *texture)
 {
-	texture->wall = mlx_load_png("mandatory/images/wall.png");
-	texture->player = mlx_load_png("mandatory/images/player.png");
-	texture->collect = mlx_load_png("mandatory/images/collect.png");
-	texture->exit = mlx_load_png("mandatory/images/exit.png");
+	texture->wall = mlx_load_png("mandatory/textures/wall.png");
+	texture->player = mlx_load_png("mandatory/textures/player.png");
+	texture->collect = mlx_load_png("mandatory/textures/collect.png");
+	texture->exit = mlx_load_png("mandatory/textures/exit.png");
 	if (!texture->wall || !texture->player
 		|| !texture->collect || !texture->exit)
 		return (EXIT_FAILURE);

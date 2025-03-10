@@ -33,7 +33,7 @@ displaying images from disk or creating a drawing surface to draw pixels on.
 * [Colors](./Colors.md)
 * [Functions](./Functions.md)
 * [Hooks](./Hooks.md)
-* [Images](./Images.md)
+* [Images](./textures.md)
 * [Input](./Input.md)
 * [Shaders](./Shaders.md)
 * [Textures](./Textures.md)

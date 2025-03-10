@@ -22,9 +22,9 @@ GNL := mandatory/gnl
 
 BNS := bonus
 
-UTILS_BNS := bonus/utils_bonus
+UTILS_BNS := bonus/utils
 
-GNL_BNS := bonus/gnl_bonus
+GNL_BNS := bonus/gnl
 
 SRCS := ${MANDO}/so_long.c ${MANDO}/validate_map.c ${MANDO}/check_walls.c ${MANDO}/print_steps.c \
 		${MANDO}/validate_map_utils.c ${MANDO}/display_frame.c ${MANDO}/display_frame_utils.c \

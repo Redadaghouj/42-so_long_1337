@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/10 00:25:31 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:31:05 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,4 @@ void	display_frame(char *map_path, t_map_info *map_info)
 	mlx_close_hook(game.mlx, close_button_handler, &game);
 	mlx_loop(game.mlx);
 	exit_safe(game);
-	mlx_terminate(game.mlx);
 }

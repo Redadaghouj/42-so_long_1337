@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 22:07:20 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:13:49 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:32:58 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sprite_animation_door(t_game game)
 {
 	mlx_texture_t	*copy_texture;
 
-	copy_texture = mlx_load_png("bonus/image_bonus/exit_open_bonus.png");
+	copy_texture = mlx_load_png("bonus/textures/exit_open_bonus.png");
 	if (!copy_texture)
 	{
 		mlx_delete_texture(copy_texture);

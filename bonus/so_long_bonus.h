@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/10 00:15:11 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:33:44 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_BONUS_H
 
 # include "../MLX42/MLX42.h"
-# include "gnl_bonus/get_next_line_bonus.h"
+# include "gnl/get_next_line_bonus.h"
 # include <unistd.h>
 # include <stdlib.h>
 
