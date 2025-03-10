@@ -28,7 +28,7 @@
 │   │   ├── get_next_line.c
 │   │   ├── get_next_line.h
 │   │   ├── get_next_line_utils.c
-│   ├── 📂 images
+│   ├── 📂 textures
 │   │   ├── collect.png
 │   │   ├── exit.png
 │   │   ├── player.png
@@ -52,10 +52,10 @@
 │   ├── validate_map.c
 │
 ├── 📂 bonus
-│   ├── 📂 gnl_bonus
-│   ├── 📂 image_bonus
-│   ├── 📂 maps_bonus
-│   ├── 📂 utils_bonus
+│   ├── 📂 gnl
+│   ├── 📂 textures
+│   ├── 📂 maps
+│   ├── 📂 utils
 │   ├── check_walls_bonus.c
 │   ├── display_frame_utils_bonus.c
 │   ├── display_frame_bonus.c
