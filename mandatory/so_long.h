@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 17:17:18 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:20:49 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ void	free_textures(t_texture *texture);
 void	free_images(t_texture *texture, mlx_t *mlx);
 void	close_button_handler(void *param);
 /* PRINT STEPS */
-int		print_steps(int *steps_counter);
+int		print_steps(t_game *game, int x, int y);
 
 #endif

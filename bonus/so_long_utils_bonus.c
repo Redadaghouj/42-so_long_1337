@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:46:57 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 01:30:40 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:15:58 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ void	init_game(t_game *game, t_map_info map_info)
 	game->enemy_imgs[1] = "bonus/image_bonus/enemy_bonus.png";
 }
 
-int	handle_key_press(t_game *game, char *image_path)
+int	key_press(t_game *game, char *image_path, int x, int y)
 {
 	sprite_animation(*game, image_path);
-	print_steps(game);
+	if (collision_check(x, y, game->texture->wall_img->instances, 
+			game->texture->wall_img->count))
+	{
+		print_steps(game);
+	}
 	return (5);
 }
 

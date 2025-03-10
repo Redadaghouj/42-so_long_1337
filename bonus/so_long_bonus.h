@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:22:59 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 17:20:33 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:15:11 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,20 @@ typedef struct s_game
 {
 	mlx_t			*mlx;
 	t_texture		*texture;
+	mlx_image_t		*steps_text_img;
 	int				collect;
 	char			**map;
 	char			*enemy_imgs[2];
 	int				steps_counter;
 	int				counter;
-	int				enemy_state; 
-	mlx_image_t		*steps_text;
+	int				enemy_state;
 }				t_game;
 
 /* SO_LONG BONUS */
 void	*free_buffer(char **buffer);
 /* SO_LONG UTILS BONUS */
 void	init_game(t_game *game, t_map_info map_info);
-int		handle_key_press(t_game *game, char *image_path);
+int		key_press(t_game *game, char *image_path, int x, int y);
 void	enemy_frame_change(t_game *game);
 /* UTILS BONUS */
 void	ft_putstr_fd(char *str, int fd);

@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:18:46 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 01:32:46 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/09 02:41:34 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,5 @@ void	exit_safe(t_game game)
 		free_images(game.texture, game.mlx);
 		free(game.texture);
 	}
-	if (game.mlx)
-		mlx_terminate(game.mlx);
-	exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:46:50 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/08 21:53:04 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:25:31 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,23 @@ int	collision_check(int p_x, int p_y, mlx_instance_t *wall, int len)
 void	ft_hook(void *param)
 {
 	t_game	*game;
-	int		new_x;
-	int		new_y;
+	int		x;
+	int		y;
 
 	game = (t_game *)param;
-	new_x = game->texture->player_img->instances[0].x;
-	new_y = game->texture->player_img->instances[0].y;
+	x = game->texture->player_img->instances[0].x;
+	y = game->texture->player_img->instances[0].y;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(game->mlx);
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
-		new_x += print_steps(&game->steps_counter);
+		x += print_steps(game, x + 5, y);
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
-		new_x -= print_steps(&game->steps_counter);
+		x -= print_steps(game, x - 5, y);
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_UP))
-		new_y -= print_steps(&game->steps_counter);
+		y -= print_steps(game, x, y - 5);
 	else if (mlx_is_key_down(game->mlx, MLX_KEY_DOWN))
-		new_y += print_steps(&game->steps_counter);
-	collision(game, new_x, new_y);
+		y += print_steps(game, x, y + 5);
+	collision(game, x, y);
 }
 
 void	collision(t_game *game, int new_x, int new_y)

@@ -6,7 +6,7 @@
 /*   By: mdaghouj <mdaghouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 00:29:28 by mdaghouj          #+#    #+#             */
-/*   Updated: 2025/03/07 00:55:29 by mdaghouj         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:20:22 by mdaghouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,15 @@ void	ft_putnbr(int n)
 	}
 }
 
-int	print_steps(int *steps_counter)
+int	print_steps(t_game *game, int x, int y)
 {
-	ft_putstr_fd("steps: ", 1);
-	ft_putnbr(*steps_counter);
-	ft_putchar('\n');
-	(*steps_counter)++;
+	if (collision_check(x, y, game->texture->wall_img->instances, 
+			game->texture->wall_img->count))
+	{
+		ft_putstr_fd("steps: ", 1);
+		ft_putnbr(game->steps_counter);
+		ft_putchar('\n');
+		game->steps_counter++;
+	}
 	return (5);
 }
