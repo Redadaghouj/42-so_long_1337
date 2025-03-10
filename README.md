@@ -154,10 +154,10 @@ make re
 ## 🖼️ Game Screenshots  
 
 ### Mandatory  
-![Mandatory Game Screenshot](dev_tools/mandatory.png)  
+![Mandatory Game Screenshot](dev_tools/Mandatory.gif)  
 
 ### Bonus  
-![Bonus Game Screenshot](dev_tools/bonus.png)  
+![Bonus Game Screenshot](dev_tools/Bonus.gif)  
 
 ---
 
